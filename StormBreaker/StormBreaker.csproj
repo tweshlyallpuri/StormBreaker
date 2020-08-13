@@ -1,0 +1,26 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Views\Images\help.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <DesignData Include="Views\Images\help.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Prism.Unity" Version="7.2.0.1422" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\StormBreaker.Modules.DatasourceManager\StormBreaker.Modules.DatasourceManager.csproj" />
+    <ProjectReference Include="..\StormBreaker.Modules.Messenger\StormBreaker.Modules.Messenger.csproj" />
+  </ItemGroup>
+
+</Project>
