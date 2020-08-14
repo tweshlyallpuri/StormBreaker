@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Prism.Regions;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -16,11 +17,27 @@ namespace StormBreaker.Modules.DatasourceManager.Views
     /// <summary>
     /// Interaction logic for DataSourceManagerMainView.xaml
     /// </summary>
-    public partial class DatasourceManagerMainView : UserControl
+    public partial class DatasourceManagerMainView : UserControl, INavigationAware
     {
         public DatasourceManagerMainView()
         {
             InitializeComponent();
+        }
+
+        public bool IsNavigationTarget(NavigationContext navigationContext)
+        {
+            //throw new NotImplementedException();
+            return true;
+        }
+
+        public void OnNavigatedFrom(NavigationContext navigationContext)
+        {
+            //throw new NotImplementedException();
+        }
+
+        public void OnNavigatedTo(NavigationContext navigationContext)
+        {
+            //throw new NotImplementedException();
         }
     }
 }

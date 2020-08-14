@@ -1,0 +1,18 @@
+<Datasource>
+<ServerInfo>
+<HostName>PLNSEGRF20</HostName>
+<AliasName>GomanDb</AliasName>
+<Role>GomanProd</Role>
+<Port>2300</Port>
+<DatabaseName>p_ln_gman</DatabaseName>
+<Provider>Sybase</Provider>
+<ExtraInfo>this is some additional info for the server</ExtraInfo>
+<Environment>QA</Environment>
+</ServerInfo>
+<Credential>
+<Username>goman_user</Username>
+<Password>goman_user</Password>
+<AdditionalField1></AdditionalField1>
+<Description>this is a readwrite role</Description>
+</Credential>
+</Datasource>

@@ -21,7 +21,9 @@ namespace StormBreaker.Modules.Messenger
             var dsView = containerProvider.Resolve<MessengerRibbonView>();
             region.Add(dsView);
             region = _regionManager.Regions["MainRegion"];
-            region.Add(containerProvider.Resolve<MessengerMainView>());
+            //var view = containerProvider.Resolve<MessengerMainView>();
+            //region.Add(view);
+            //region.Deactivate(view);
         }
 
         public void RegisterTypes(IContainerRegistry containerRegistry)

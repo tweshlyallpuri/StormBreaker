@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:prism="http://prismlibrary.com/" xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
               mc:Ignorable="d"
-        Title="StormBreaker" Height="450" Width="800">
+        Title="StormBreaker" Height="450" Width="800"  prism:ViewModelLocator.AutoWireViewModel="True">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="40*"/>
@@ -18,13 +18,13 @@
         <!--<RibbonControl Name="MainRibbonControl" prism:RegionManager.RegionName="MainRegion">
             
         </RibbonControl>-->
-        <Ribbon x:Name="ShellRibbon"  SelectedIndex="0" prism:RegionManager.RegionName="RibbonRegion" Grid.Row="0" Grid.ColumnSpan="2" SelectionChanged="OnRibbonTabSelectionChanged">
-            <!--<i:Interaction.Triggers>
+        <Ribbon x:Name="ShellRibbon"  prism:RegionManager.RegionName="RibbonRegion" Grid.Row="0" Grid.ColumnSpan="2" SelectedItem="{Binding Path=SelectedRibbon, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+            <i:Interaction.Triggers>
                 <i:EventTrigger EventName="SelectionChanged">
-                    <i:InvokeCommandAction Command="{Binding NavigateCommand}"
-                             CommandParameter="{Binding NavigationParameter}" />
+                    <prism:InvokeCommandAction Command="{Binding NavigateCommand}" TriggerParameterPath="AddedItems"/>
+                    <!--CommandParameter="{Binding SelectedItem.Name ,RelativeSource={RelativeSource ShellRi}}"-->
                 </i:EventTrigger>
-            </i:Interaction.Triggers>-->
+            </i:Interaction.Triggers>
             <!-- Help Pane, located at the right-hand side -->
             <!--<Ribbon.HelpPaneContent>
                 <RibbonButton SmallImageSource="\Images\help.png" />
@@ -80,8 +80,8 @@
             <!--<RibbonTab Header="PageLayout" KeyTip="L">
             </RibbonTab>-->
         </Ribbon>
-        <StackPanel x:Name="MainView" prism:RegionManager.RegionName="MainRegion" Grid.Row="1" Grid.ColumnSpan="2">
+        <ContentControl x:Name="MainView" prism:RegionManager.RegionName="MainRegion" Grid.Row="1" Grid.ColumnSpan="2">
             
-        </StackPanel>
+        </ContentControl>
     </Grid>
 </RibbonWindow>

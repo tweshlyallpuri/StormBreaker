@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="200" d:DesignWidth="800" Name="DatasourceManager" Header="DatasourceManager" KeyTip="D">
     <RibbonGroup Name="ClipboardGroup" Header="Home">
-            <RibbonMenuButton LargeImageSource="D:\Dev\GitHub\StormBreaker\StormBreaker\StormBreaker.Modules.DataSourceManager\Views\Images\paste.png" Label="Button 1" KeyTip="B">
+            <RibbonMenuButton LargeImageSource="D:\Dev\GitHub\StormBreaker\StormBreaker.Modules.DatasourceManager\Views\Images\paste.png" Label="Button 1" KeyTip="B">
                 <RibbonMenuItem  Header="Keep Text Only" KeyTip="T"/>
                 <RibbonMenuItem Header="Paste Special..." KeyTip="S"/>
             </RibbonMenuButton>

@@ -30,6 +30,12 @@ namespace StormBreaker.Views
             InitializeComponent();
             _regionManager = regionManager;
             _container = container;
+            this.Loaded += OnLoaded;
+        }
+
+        private void OnLoaded(object sender, RoutedEventArgs e)
+        {
+            //this.ShellRibbon.SelectedIndex = 1;
         }
 
         private void OnRibbonTabSelectionChanged(object sender, SelectionChangedEventArgs e)

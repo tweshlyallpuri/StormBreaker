@@ -20,6 +20,7 @@ namespace StormBreaker.CustomRegionAdapters
             {
                 if (e.Action == NotifyCollectionChangedAction.Add)
                 {
+                    regionTarget.Children.Clear();
                     foreach (FrameworkElement element in e.NewItems)
                     {
                         regionTarget.Children.Add(element);
@@ -37,7 +38,7 @@ namespace StormBreaker.CustomRegionAdapters
 
         protected override IRegion CreateRegion()
         {
-            return new Region();
+            return new AllActiveRegion();
         }
     }
 }

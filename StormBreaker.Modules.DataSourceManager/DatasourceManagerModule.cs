@@ -14,6 +14,7 @@ namespace StormBreaker.Modules.DatasourceManager
         public DatasourceManagerModule(IRegionManager regionManager)
         {
             _regionManager = regionManager;
+            //new XmlHelper();
         }
         public void OnInitialized(IContainerProvider containerProvider)
         {
@@ -21,8 +22,9 @@ namespace StormBreaker.Modules.DatasourceManager
             IRegion region = _regionManager.Regions["RibbonRegion"];
             var dsView = containerProvider.Resolve<DatasourceManagerRibbonView>();
             region.Add(dsView);
-            region = _regionManager.Regions["MainRegion"];
-            region.Add(containerProvider.Resolve<DatasourceManagerMainView>());
+            _regionManager.RequestNavigate("MainRegion", "DatasourceManagerMainView");
+            // region = _regionManager.Regions["MainRegion"];
+            //region.Add(containerProvider.Resolve<DatasourceManagerMainView>());
             //region.Add(containerProvider.Resolve<DatasourceManagerMainView>());
         }
 
