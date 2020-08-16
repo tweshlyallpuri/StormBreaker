@@ -14,7 +14,7 @@ namespace StormBreaker.Modules.DatasourceManager
         public DatasourceManagerModule(IRegionManager regionManager)
         {
             _regionManager = regionManager;
-            //new XmlHelper();
+            new XmlHelper().CreateRandomXml();
         }
         public void OnInitialized(IContainerProvider containerProvider)
         {

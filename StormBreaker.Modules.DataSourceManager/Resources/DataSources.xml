@@ -1,13 +1,14 @@
+<Root>
 <Datasource>
 <ServerInfo>
 <HostName>PLNSEGRF20</HostName>
 <AliasName>GomanDb</AliasName>
-<Role>GomanProd</Role>
+<Role>Goman_Prod</Role>
 <Port>2300</Port>
 <DatabaseName>p_ln_gman</DatabaseName>
 <Provider>Sybase</Provider>
 <ExtraInfo>this is some additional info for the server</ExtraInfo>
-<Environment>QA</Environment>
+<Environment>Prod</Environment>
 </ServerInfo>
 <Credential>
 <Username>goman_user</Username>
@@ -16,3 +17,14 @@
 <Description>this is a readwrite role</Description>
 </Credential>
 </Datasource>
+
+<Datasource>
+<ServerInfo>
+<HostName>talon-uk-mosaic.net/tfmhub</HostName>
+<AliasName>PT_Talon_UK</AliasName>
+<Role>PT_Prod</Role>
+<Environment>Prod</Environment>
+<Provider>SignalR Hub</Provider>
+</ServerInfo>
+</Datasource>
+</Root>
