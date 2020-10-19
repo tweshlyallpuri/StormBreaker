@@ -13,20 +13,30 @@
             </StackPanel>
         </HierarchicalDataTemplate>
     </UserControl.Resources>
-
-    <Grid>
+    <StackPanel Orientation="Vertical">
+        <Border BorderBrush="Black" BorderThickness="2"  Margin="5">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch">
+                <Label Content="Filter Text"/>
+                <TextBox Name ="FilterTextBox" MinWidth="200" HorizontalAlignment="Stretch" TextChanged="FilterTextChanged"/>
+            </StackPanel>
+        </Border>
+        <Grid >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="15*"/>
+            <ColumnDefinition Width="60*"/>
+        </Grid.ColumnDefinitions>
         <!-- empty binding means the the itemsource will be bound to DataContext itself, not any property inside the Datacontext object -->
-        <TreeView Name="DataTree" ItemsSource="{Binding}">
+        <TreeView Name="DataTree" ItemsSource="{Binding}" Grid.Column="0" SelectedItemChanged="OnDataTreeSelectedItemChanged">
             <TreeView.ItemTemplate>
-                <HierarchicalDataTemplate ItemsSource="{Binding Credentials}">
+                <HierarchicalDataTemplate ItemsSource="{Binding DsInfos}">
                     <StackPanel Orientation="Horizontal" Margin="2">
-                        <TextBlock Text="{Binding Name}" FontWeight="Bold" FontSize="16" />
+                        <TextBlock Text="{Binding CategoryName}" FontWeight="Bold" FontSize="12" />
                     </StackPanel>
                     <HierarchicalDataTemplate.ItemTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal" Margin="2">
-                                <TextBlock Text="{Binding Username}" FontSize="14" FontWeight="Bold"/>
-                                <TextBlock Margin="5,0,0,0" FontSize="12" Text="{Binding Password}" 
+                                <TextBlock Text="{Binding HostName}" FontSize="14"/>
+                                <TextBlock Margin="5,0,0,0" FontSize="12" Text="{Binding AliasName}" 
                                            VerticalAlignment="Center"/>
                             </StackPanel>
                         </DataTemplate>
@@ -34,29 +44,10 @@
                 </HierarchicalDataTemplate>
             </TreeView.ItemTemplate>
         </TreeView>
-        <!--<TreeView Name="DataTree1" ItemsSource="{Binding}">
-                <TreeView.ItemTemplate>
-                    <HierarchicalDataTemplate ItemsSource="{Binding Modules}">
-                        <StackPanel Orientation="Horizontal" Margin="2">
-                            <TextBlock Text="{Binding ProcessName}"
-FontWeight="Bold" FontSize="16" />
-                            <TextBlock Margin="5,0,0,0" FontSize="16"
-Text="{Binding Id, StringFormat=(\{0\})}" />
-                        </StackPanel>
-                        <HierarchicalDataTemplate.ItemTemplate>
-                            <DataTemplate>
-                                <StackPanel Orientation="Horizontal" Margin="2">
-                                    <TextBlock Text="{Binding ModuleName}"
-FontSize="14" FontWeight="Bold"/>
-                                    <TextBlock Margin="5,0,0,0" FontSize="12"
-Text="{Binding FileName, StringFormat=(\{0\})}"
-VerticalAlignment="Center"/>
-                                </StackPanel>
-                            </DataTemplate>
-                        </HierarchicalDataTemplate.ItemTemplate>
-                    </HierarchicalDataTemplate>
-                </TreeView.ItemTemplate>    
-            </TreeView>-->
-        <!--/StackPanel>-->
+        <StackPanel Grid.Column="1">
+            <TextBox Name="TextBlock" Text="Hi from StackPanel" VerticalAlignment="Center" IsReadOnly="True" HorizontalContentAlignment="Center"/>
+        </StackPanel>
+
     </Grid>
+    </StackPanel>
 </UserControl>

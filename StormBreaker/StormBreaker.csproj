@@ -4,10 +4,12 @@
     <OutputType>WinExe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <UseWPF>true</UseWPF>
+    <ApplicationIcon>StormBreaker.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
     <None Remove="Views\Images\help.png" />
+    <None Remove="Views\Images\StormBreaker.ico" />
   </ItemGroup>
 
   <ItemGroup>
@@ -21,6 +23,10 @@
   <ItemGroup>
     <ProjectReference Include="..\StormBreaker.Modules.DatasourceManager\StormBreaker.Modules.DatasourceManager.csproj" />
     <ProjectReference Include="..\StormBreaker.Modules.Messenger\StormBreaker.Modules.Messenger.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Views\Images\StormBreaker.ico" />
   </ItemGroup>
 
 </Project>

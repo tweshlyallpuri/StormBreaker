@@ -7,6 +7,21 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        <Label FontSize="24" Content="Hi from Messenger" VerticalAlignment="Center"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100*"/>
+            <RowDefinition MinHeight="100" Height="20*"/>
+        </Grid.RowDefinitions>
+        <!--<Label FontSize="24" Content="Hi from Messenger" VerticalAlignment="Center"/>-->
+        <ListBox x:Name="MessageListBox" HorizontalAlignment="Stretch" Margin="10" Grid.Column="0" Grid.Row="0"/>
+        <Border BorderBrush="Black" BorderThickness="2" Grid.Column="0" Grid.Row="1">
+        <Grid HorizontalAlignment="Stretch" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100*"/>
+                <ColumnDefinition Width="20*"/>
+            </Grid.ColumnDefinitions>
+                <TextBox x:Name="MessageTextBox" Grid.Column="0" Margin="5" KeyDown="MessageTextBox_KeyDown"/>
+            <Button x:Name="SendButton" Content="Send" Margin="10" Grid.Column="1" Click="SendButton_Click" />
+        </Grid>
+        </Border>
     </Grid>
 </UserControl>

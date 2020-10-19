@@ -1,42 +1,37 @@
 ﻿using System.Collections.Generic;
+using System.Net;
 
 namespace StormBreaker.Modules.DatasourceManager.Models
 {
     public class Datasource
     {
-        public Datasource(string name, ServerInfo serverInformation, Credential[] credentials)
+        public Datasource(string categoryName, List<DsInfo> dsInfos)
         {
-            Name = name;
-            ServerInformation = serverInformation;
-            Credentials = credentials;
+            CategoryName = categoryName;
+            DsInfos = dsInfos;
         }
 
-        public string Name { get; private set; }
-        public ServerInfo ServerInformation { get; private set; }
-        public Credential[] Credentials { get; private set; }
+        public string CategoryName { get; private set; }
+        public List<DsInfo> DsInfos { get; private set; }
         }
-    public class ServerInfo
+    public class DsInfo
     {
-        public ServerInfo(string hostName, string aliasName, string role, string port, string databaseName, string provider, string extraInfo, string environment)
+        public DsInfo(string hostName, string aliasName, string port, string databaseName, string extraInfo, Credential[] credentials)
         {
             HostName = hostName;
             AliasName = aliasName;
-            Role = role;
             Port = port;
             DatabaseName = databaseName;
-            Provider = provider;
             ExtraInfo = extraInfo;
-            Environment = environment;
+            Credentials = credentials;
         }
 
         public string HostName { get; private set; }
         public string AliasName { get; private set; }
-        public string Role { get; private set; }
         public string Port { get; private set; }
         public string DatabaseName { get; private set; }
-        public string Provider { get; private set; }
         public string ExtraInfo { get; private set; }
-        public string Environment { get; private set; }
+        public Credential[] Credentials { get; private set; }
     }
 
     public class Credential
@@ -47,13 +42,10 @@ namespace StormBreaker.Modules.DatasourceManager.Models
             Password = password;
             AdditionalField1 = additionalField1;
             Description = description;
-            AnotherCollection = new List<ServerInfo> { new ServerInfo("host", "aloas", "role", "pport", "databasenmae", "provider", "extra", "env"),
-            new ServerInfo("host2", "aloas", "role", "pport", "databasenmae", "provider", "extra", "env")}.ToArray();
         }
         public string Username { get; private set; }
         public string Password { get; private set; }
         public string AdditionalField1 { get; private set; }
         public string Description { get; private set; }
-        public ServerInfo[] AnotherCollection { get; private set; }
     }
 }

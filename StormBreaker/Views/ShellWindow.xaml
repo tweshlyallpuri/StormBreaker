@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:prism="http://prismlibrary.com/" xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
               mc:Ignorable="d"
-        Title="StormBreaker" Height="450" Width="800"  prism:ViewModelLocator.AutoWireViewModel="True">
+        Title="StormBreaker" Height="450" Width="800"  prism:ViewModelLocator.AutoWireViewModel="True" WindowStartupLocation="CenterScreen"
+              Icon="Images/StormBreaker.ico">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="40*"/>

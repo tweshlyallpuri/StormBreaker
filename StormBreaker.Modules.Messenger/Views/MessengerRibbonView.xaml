@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="200" d:DesignWidth="800" Header="Messenger" Name="Messenger" KeyTip="M">
     <RibbonGroup Name="Favourites" Header="MessengerH">
-        <RibbonMenuButton LargeImageSource="D:\Dev\GitHub\StormBreaker\StormBreaker.Modules.DatasourceManager\Views\Images\paste.png" Label="Button 1" KeyTip="B">
+        <RibbonMenuButton LargeImageSource="Images\paste.png" Label="Button 1" KeyTip="B">
             <RibbonMenuItem  Header="Send" KeyTip="S"/>
             <RibbonMenuItem Header="Refresh.." KeyTip="R"/>
         </RibbonMenuButton>

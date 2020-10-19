@@ -6,22 +6,28 @@
              xmlns:local="clr-namespace:StormBreaker.Modules.DatasourceManager.Views"
              mc:Ignorable="d" 
              d:DesignHeight="200" d:DesignWidth="800" Name="DatasourceManager" Header="DatasourceManager" KeyTip="D">
-    <RibbonGroup Name="ClipboardGroup" Header="Home">
-            <RibbonMenuButton LargeImageSource="D:\Dev\GitHub\StormBreaker\StormBreaker.Modules.DatasourceManager\Views\Images\paste.png" Label="Button 1" KeyTip="B">
-                <RibbonMenuItem  Header="Keep Text Only" KeyTip="T"/>
-                <RibbonMenuItem Header="Paste Special..." KeyTip="S"/>
-            </RibbonMenuButton>
+    <RibbonGroup Name="HelpGroup" Header="Home">
+        <RibbonMenuButton LargeImageSource="Images/help.png"  Label="Help" KeyTip="H">
+            <RibbonMenuItem  Header="Refresh Nodes..." KeyTip="T"/>
+            <RibbonMenuItem Header="About..." KeyTip="S"/>
+        </RibbonMenuButton>
+        <RibbonButton LargeImageSource="Images\paste.png" Label="Copy Details" KeyTip="B" >
+        </RibbonButton>
             <RibbonButton  Label="Cut" KeyTip="X" />
             <RibbonButton  Label="Copy" KeyTip="C" />
             <RibbonButton  Label="Format Painter" KeyTip="FP" />
         </RibbonGroup>
         <!--Employee And Payroll group-->
-    <RibbonGroup Name="Employee" Header="Employee And Payroll">
-        <RibbonMenuButton Label="Employee" KeyTip="V">
+    <RibbonGroup Name="FilterGroup" Header="Filter">
+        <!--<RibbonMenuButton Label="Employee" KeyTip="V">
             <RibbonMenuItem  Header="Keep Text Only" KeyTip="T"/>
             <RibbonMenuItem  Header="Paste Special..." KeyTip="S"/>
-        </RibbonMenuButton>
+        </RibbonMenuButton>-->
         <RibbonButton Label="Save" KeyTip="X" />
-        <RibbonButton  Label="Add" KeyTip="C" />
+        <RibbonButton Label="Add" KeyTip="C" />
+        <!--StackPanel Orientation="Horizontal">
+            <Label Content="FilterText"/>
+            <TextBox Name="FilterTextBox" Width="150" TextChanged="FilterTextChanged"/>
+        </StackPanel>-->
     </RibbonGroup>
 </RibbonTab>

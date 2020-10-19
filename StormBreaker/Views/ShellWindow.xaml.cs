@@ -3,8 +3,11 @@ using Prism.Regions;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Ribbon;
@@ -14,6 +17,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 using Unity;
 
 namespace StormBreaker.Views
@@ -25,18 +29,70 @@ namespace StormBreaker.Views
     {
         IRegionManager _regionManager;
         IUnityContainer _container;
+        Thread _t;
+        static CancellationTokenSource c = new CancellationTokenSource();
+        static CancellationToken token = c.Token;
+        private event Action CloseSplashWindow = delegate { };
+
         public ShellWindow(IRegionManager regionManager, IUnityContainer container)
         {
+            //var scheduler = TaskScheduler.FromCurrentSynchronizationContext();
+            //Task reportTask = Task.Factory.StartNew(() =>
+            //{
+            //    Dispatcher.CurrentDispatcher.InvokeAsync((Action)(() => new SplashWindow().Show()));
+            //    Dispatcher.Run();
+            //},token);
+            _t = new Thread(() => ShowSplashWindow(ref CloseSplashWindow));
+            //_t = new Thread((Object token) =>
+            //{
+            //    var t = (CancellationToken)token;
+            //    var s = new SplashWindow();
+            //    if (!t.IsCancellationRequested)
+            //    {
+
+            //        Dispatcher.CurrentDispatcher.BeginInvoke((Action)(() => s.Show()));
+            //        Dispatcher.Run();
+            //    }
+            //    while(!t.IsCancellationRequested)
+            //    {
+            //        Thread.Sleep(500);
+            //    }
+            //    Dispatcher.CurrentDispatcher.BeginInvoke((Action)(() => s.Close()));
+            //    Dispatcher.Run();               
+                
+            //});
+            _t.SetApartmentState(ApartmentState.STA);
+            _t.IsBackground = true;
+            _t.Start();
+            //_s.Show();
             InitializeComponent();
             _regionManager = regionManager;
             _container = container;
             this.Loaded += OnLoaded;
         }
 
+        private void ShowSplashWindow(ref Action CloseSplashWindow)
+        {
+            var s = new SplashWindow();
+            Dispatcher.CurrentDispatcher.BeginInvoke((Action)(() => s.Show()));
+            CloseSplashWindow += () => s.Dispatcher.BeginInvoke(new ThreadStart(() => s.Close()));
+            Dispatcher.Run();
+        }
+
         private void OnLoaded(object sender, RoutedEventArgs e)
         {
-            //this.ShellRibbon.SelectedIndex = 1;
+            //c.Cancel();
+            CloseSplashWindow();
+            this.Activate();
+            //ShellRibbon.RaiseEvent(new SelectionChangedEventArgs(Ribbon.SelectionChangedEvent,null,null));
+            _regionManager.RequestNavigate("MainRegion", "DatasourceManagerMainView");
         }
+
+        //private void CloseSplashWindow(object sender, EventArgs e)
+        //{
+        //    _s.Close();
+        //    _d.Stop();
+        //}
 
         private void OnRibbonTabSelectionChanged(object sender, SelectionChangedEventArgs e)
         {

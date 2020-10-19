@@ -1,0 +1,13 @@
+﻿<Window x:Class="StormBreaker.Views.SplashWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:StormBreaker.Views"
+        mc:Ignorable="d"
+        Title="SplashWindow" Height="600" Width="600" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" WindowStyle="None" Background="SlateGray">
+    <Grid Background="Transparent">
+        <MediaElement Name="SplashMediaElement" Height="600" Width="600"  MediaEnded="SplashMediaElement_MediaEnded" UnloadedBehavior="Manual" Stretch="None"/>
+        <TextBlock Text="Loading....." FontSize="57" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
+    </Grid>
+</Window>

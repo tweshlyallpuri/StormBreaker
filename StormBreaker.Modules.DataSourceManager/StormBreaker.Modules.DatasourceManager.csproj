@@ -6,15 +6,55 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Views\Images\1353183085_save.png" />
+    <None Remove="Views\Images\add.png" />
+    <None Remove="Views\Images\copy.png" />
+    <None Remove="Views\Images\cut.png" />
+    <None Remove="Views\Images\format_painter.png" />
+    <None Remove="Views\Images\go-next.png" />
+    <None Remove="Views\Images\go-previous.png" />
     <None Remove="Views\Images\help.png" />
+    <None Remove="Views\Images\home.png" />
+    <None Remove="Views\Images\options.png" />
+    <None Remove="Views\Images\paste.png" />
+    <None Remove="Views\Images\personal.png" />
+    <None Remove="Views\Images\quit.png" />
+    <None Remove="Views\Images\redo.png" />
+    <None Remove="Views\Images\save.png" />
+    <None Remove="Views\Images\undo.png" />
   </ItemGroup>
 
   <ItemGroup>
-    <DesignData Include="Views\Images\help.png" />
+    <Resource Include="Views\Images\help.png" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Prism.Wpf" Version="7.2.0.1422" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ContentWithTargetPath Include="Resources\DataSources.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <TargetPath>DataSources.xml</TargetPath>
+    </ContentWithTargetPath>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Views\Images\1353183085_save.png" />
+    <Resource Include="Views\Images\add.png" />
+    <Resource Include="Views\Images\copy.png" />
+    <Resource Include="Views\Images\cut.png" />
+    <Resource Include="Views\Images\format_painter.png" />
+    <Resource Include="Views\Images\go-next.png" />
+    <Resource Include="Views\Images\go-previous.png" />
+    <Resource Include="Views\Images\home.png" />
+    <Resource Include="Views\Images\options.png" />
+    <Resource Include="Views\Images\paste.png" />
+    <Resource Include="Views\Images\personal.png" />
+    <Resource Include="Views\Images\quit.png" />
+    <Resource Include="Views\Images\redo.png" />
+    <Resource Include="Views\Images\save.png" />
+    <Resource Include="Views\Images\undo.png" />
   </ItemGroup>
   <!--<Target Name="PostBuild" AfterTargets="PostBuildEvent">
     <Exec Command="xcopy &quot;$(TargetDir)*.*&quot; &quot;$(SolutionDir)\$(SolutionName)\bin\Debug\netcoreapp3.1\&quot; /Y" />
